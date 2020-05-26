@@ -1,0 +1,4 @@
+name: elastic-stack-demo
+runtime: nodejs
+description: pulumi script to provision elastic operator + metricbeat + logstash +
+  demo app + mongodb
