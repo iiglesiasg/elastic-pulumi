@@ -18,6 +18,33 @@ export const Operatoryamlelk = new k8s.yaml.ConfigFile("Operator", {
     file: "https://download.elastic.co/downloads/eck/1.1.1/all-in-one.yaml"
 });
 
+export const certManagerCRD = new k8s.yaml.ConfigGroup("certmanagercrd", {
+    files: ["https://github.com/jetstack/cert-manager/releases/download/v0.15.0/cert-manager.crds.yaml",
+            "cluster-issuer-prod.yaml"]   
+});
+
+
+const namespace = new k8s.core.v1.Namespace("cert-manager",
+    {
+        metadata: {
+            name: "cert-manager",
+            labels: {"certmanager.k8s.io/disable-validation": "true" }
+            }
+        
+    },  {  dependsOn: certManagerCRD }
+);
+
+const certmanagerchart = new k8s.helm.v3.Chart("cert-manager",
+    {
+       // repo: "jetstack",
+        chart: "cert-manager",
+        namespace: "cert-manager",
+        fetchOpts: {repo: "https://charts.jetstack.io"},
+        version: "v0.15.0"
+        
+    },  { dependsOn: namespace}
+);
+
 const mongo = new k8s.helm.v3.Chart("bilbo-mongo", {
     repo: "bitnami",
     //version: "0.2.0-ITX",
@@ -44,6 +71,13 @@ const metricbeat = new k8s.helm.v2.Chart("metricbeat", {
     version: "0.2.0-ITX"
 },{dependsOn: elkoperator});
 
+const nginx = new k8s.helm.v3.Chart("nginx-ingress",
+    {
+        repo: "stable",
+        chart: "nginx-ingress",
+        
+    }, {dependsOn: certmanagerchart }
+);
 const appdemo = new k8s.helm.v2.Chart("micro-chart", {
     repo: "inigo-repo",
     version: "0.2.0-ITX",
