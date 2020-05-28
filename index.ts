@@ -18,11 +18,14 @@ export const Operatoryamlelk = new k8s.yaml.ConfigFile("Operator", {
     file: "https://download.elastic.co/downloads/eck/1.1.1/all-in-one.yaml"
 });
 
-export const certManagerCRD = new k8s.yaml.ConfigGroup("certmanagercrd", {
-    files: ["https://github.com/jetstack/cert-manager/releases/download/v0.15.0/cert-manager.crds.yaml",
-            "cluster-issuer-prod.yaml"]   
+export const certManagerCRD = new k8s.yaml.ConfigFile("certmanagercrd", {
+    file: "https://github.com/jetstack/cert-manager/releases/download/v0.15.0/cert-manager.crds.yaml"             
 });
 
+export const clusterIssuers = new k8s.yaml.ConfigGroup("clusterIssuers", {
+    files: ["cluster-issuer-prod.yaml",
+            "cluster-issuer-sef-signed.yaml"]   
+},{dependsOn: certManagerCRD});
 
 const namespace = new k8s.core.v1.Namespace("cert-manager",
     {
