@@ -10,9 +10,9 @@ RUN chmod +x /usr/local/bin/jenkins-agent &&\
     ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave &&\
     apt-get update &&\
     apt-get install -y --no-install-recommends apt-utils &&\
-    apt-get install ca-certificates software-properties-common curl apt-transport-https lsb-release gnupg sudo build-essential npm -y; \
+    apt-get install ca-certificates software-properties-common curl apt-transport-https lsb-release gnupg sudo build-essential -y; \
     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
-    curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - &&\
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &&\
     echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list &&\
     curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
     gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null &&\
