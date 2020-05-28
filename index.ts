@@ -49,7 +49,7 @@ const certmanagerchart = new k8s.helm.v3.Chart("cert-manager",
 );
 
 const mongo = new k8s.helm.v3.Chart("bilbo-mongo", {
-    repo: "bitnami",
+    //repo: "bitnami",
     //version: "0.2.0-ITX",
     chart: "mongodb",
     fetchOpts: {repo: "https://charts.bitnami.com/bitnami"},
@@ -57,21 +57,21 @@ const mongo = new k8s.helm.v3.Chart("bilbo-mongo", {
 
 // helm repo add inigo-repo https://iiglesiasg.github.io/helm-charts-repo/
 const elkoperator = new k8s.helm.v2.Chart("elk-operator", {
-    repo: "inigo-repo",
+    //repo: "inigo-repo",
     version: "0.3.0-ITX",
     chart: "elk-operator",
     fetchOpts: {repo: "https://iiglesiasg.github.io/helm-charts-repo/"},
 },{dependsOn: Operatoryamlelk});
 
 const logstash = new k8s.helm.v2.Chart("bilbao", {
-    repo: "inigo-repo",
+   // repo: "inigo-repo",
     chart: "logstash",    
     version: "0.2.0-ITX",
     fetchOpts: {repo: "https://iiglesiasg.github.io/helm-charts-repo/"},
 },{dependsOn: elkoperator});
 
 const metricbeat = new k8s.helm.v2.Chart("metricbeat", {
-    repo: "inigo-repo",
+    //repo: "inigo-repo",
     chart: "metricbeat",    
     version: "0.2.0-ITX",
     fetchOpts: {repo: "https://iiglesiasg.github.io/helm-charts-repo/"},
@@ -85,7 +85,7 @@ const nginx = new k8s.helm.v3.Chart("nginx-ingress",
     }, {dependsOn: certmanagerchart }
 );
 const appdemo = new k8s.helm.v2.Chart("micro-chart", {
-    repo: "inigo-repo",
+    //repo: "inigo-repo",
     version: "0.2.0-ITX",
     chart: "demoapp",    
     fetchOpts: {repo: "https://iiglesiasg.github.io/helm-charts-repo/"},
