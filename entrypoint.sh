@@ -6,4 +6,4 @@ echo $KUBECONFIG
 /root/.pulumi/bin/pulumi login
 #/root/.pulumi/bin/pulumi stack select elastic 
 /root/.pulumi/bin/pulumi up -s elastic --skip-preview -y
-tail -f /dev/null
+#tail -f /dev/null
