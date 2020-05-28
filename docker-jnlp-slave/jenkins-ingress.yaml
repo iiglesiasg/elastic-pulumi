@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+  creationTimestamp: "2019-11-07T13:33:54Z"
+  generation: 2
+  name: jenkins-ingress-v2
+  namespace: default
+  resourceVersion: "1695070"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/jenkins-ingress
+  uid: 3e77c681-0163-11ea-929a-be772545607c
+spec:
+  rules:
+  - host: jenkins-alicorp.alicorp-everis.com
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins
+          servicePort: 8080
+        path: /
+  tls:
+  - hosts:
+    - jenkins-alicorp.alicorp-everis.com
+    secretName: lets-encrypt-jenkin
+status:
+  loadBalancer:
+    ingress:
+    - {}
