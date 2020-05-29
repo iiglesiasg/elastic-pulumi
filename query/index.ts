@@ -16,4 +16,9 @@ const ElasticCert = kq
     .filter(secret => secret.metadata.name === "quickstart-es-http-certs-public")
     .distinct();
 
-ElasticCert.forEach(console.log);
+var nuetroarray: Array<string>
+ElasticCert.forEach(e.). 
+if (ElasticCert.  0)
+{
+    export var elasticsecret  
+}

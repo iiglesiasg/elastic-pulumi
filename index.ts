@@ -1,6 +1,7 @@
 import * as k8s from "@pulumi/kubernetes";
 import * as kx from "@pulumi/kubernetesx";
 import * as kq from "@pulumi/query-kubernetes";
+import * as query from "./query/index";
 
 /*const appLabels = { app: "nginx" };
 const deployment = new k8s.apps.v1.Deployment("nginx", {
@@ -81,10 +82,12 @@ const nginx = new k8s.helm.v3.Chart("nginx-ingress",
         
     }, {dependsOn: certmanagerchart }
 );
+
 const appdemo = new k8s.helm.v2.Chart("micro-chart", {
     repo: "inigo-repo",
     version: "0.2.0-ITX",
     chart: "demoapp",    
-},{dependsOn: [elkoperator,mongo,logstash]});
+},{dependsOn: [elkoperator,mongo,logstash,query.elasticsecret]});
 
 //export const name = deployment.metadata.name;
+
