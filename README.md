@@ -128,7 +128,7 @@ Where the body
 }
 ```
 
-delayMillis: For elastic APM inferred span
+delayMillis: For elastic APM [inferred span](https://www.elastic.co/es/blog/from-distributed-tracing-to-distributed-profiling-with-elastic-apm)
 
 ### Mongodb
 
