@@ -1,6 +1,6 @@
 # elasticsearch full monitoring platform
 
-This repo contains de source code for deploying full elasticstack + running application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command to: 
+This repo contains the source code for deploying full elasticstack + running application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command to: 
 
 ```
 docker run -v ${HOME}/.kube:/usr/multicloud/kube iiglesias/multicloud-sandbox:0.1.0
@@ -177,7 +177,7 @@ spec:
 
 Once the cluster is created a Kubernetes Job will perform load request to our demo workload.
 
-This load Generator it is based on [Vegeta](https://github.com/tsenart/vegeta) and will be generating load (distributed traces) for the first 15 mins.
+This load Generator is based on [Vegeta](https://github.com/tsenart/vegeta) and will be generating load (distributed traces) for the first 15 mins.
 
 Base image was provided by  https://github.com/peter-evans/vegeta-docker 
 
