@@ -67,7 +67,7 @@ The dockerfile is included in this repo
 
 This workload if composed by 3 services  
 
-![image-20200601115035549](C:\Users\ningu\AppData\Roaming\Typora\typora-user-images\image-20200601115035549.png)
+![images/](images/distributed-tracing.png)
 
 ```
 curl --header "Content-Type: application/json" --request POST http://{ADAPTER_IP}}:8090/MONADTST/testhttp -d @body.json
