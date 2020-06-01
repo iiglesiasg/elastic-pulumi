@@ -1,6 +1,6 @@
 # elasticsearch full monitoring platform
 
-This repo contains the source code for deploying full elasticstack + running application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command to: 
+This repo contains the source code for deploying full elasticstack + running application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command too: 
 
 ```
 docker run -v ${HOME}/.kube:/usr/multicloud/kube iiglesias/multicloud-sandbox:0.1.0
@@ -233,6 +233,22 @@ Turn on monitoring as metricBeat is already configured
 ![images/](images/stack-monitoring2.PNG)
 
 
+
+### LOGS
+
+In order to use kibana logs, we must set logs index to our newly created kibana index logstash-*
+
+Change source configuration
+
+![images/](images/logs-index.PNG)
+
+Replace filebeat by logstash index
+
+![images/](images/logs-index2.PNG)
+
+Now you can correlate traces and logs
+
+![images/](images/correlated-logs.PNG)
 
 ## ENJOY
 
