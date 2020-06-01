@@ -244,7 +244,7 @@ Turn on monitoring as metricBeat is already configured
 
 - Update elasticsearch node count and storage size
 
-  - update elasticsearch crd manifest
+  - update elasticsearch 
 
     ```
     kubectl edit elasticsearch
