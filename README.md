@@ -88,11 +88,9 @@ This workload if composed by 3 services
 
 SpringBoot services:
 
-logs: [logback](http://logback.qos.ch/) - [logstash appender](https://github.com/logstash/logstash-logback-encoder)
-
-Tracing: [Opentracing](https://opentracing.io/) + [elastic APM java agent](https://www.elastic.co/guide/en/apm/agent/java/1.x/index.html)
-
-Metrics: [Micrometer](https://micrometer.io/)
+- logs: [logback](http://logback.qos.ch/) - [logstash appender](https://github.com/logstash/logstash-logback-encoder)
+- Tracing: [Opentracing](https://opentracing.io/) + [elastic APM java agent](https://www.elastic.co/guide/en/apm/agent/java/1.x/index.html)
+- Metrics: [Micrometer](https://micrometer.io/)
 
 ```
 curl --header "Content-Type: application/json" --request POST http://{ADAPTER_IP}}:8090/MONADTST/testhttp -d @body.json
