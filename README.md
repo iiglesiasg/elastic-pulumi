@@ -27,7 +27,7 @@ To simply run the scrip you will need following tools:
 
 By default pulumi run the stack against your local .kube/config. Your config should be pointing the kubernetes cluster
 
-Then you should login on pulumi and create your account. Then:
+You should login on pulumi and create your account. Then run: 
 
 ```
 npm install ## for downloading pulumi´s libraries
@@ -145,14 +145,13 @@ curl -kv https://adapter.multicloud.inditex.com/MONADTST/amiga/healthcheck
 ```
 
 ```
-# For a different clusterIssuer update the ingress manifest
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: adapter-helm
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: selfsigning-issuer
+    cert-manager.io/cluster-issuer: selfsigning-issuer ## For a different clusterIssuer 
 spec:
   tls:
   - hosts:
@@ -172,7 +171,7 @@ spec:
 
 Once the cluster is created a Kubernetes Job will perform load request to our demo workload.
 
-This load Generator it is based on [Vegeta](https://github.com/tsenart/vegeta) and will be generating distributed traces for the first 15 mins.
+This load Generator it is based on [Vegeta](https://github.com/tsenart/vegeta) and will be generating load (distributed traces) for the first 15 mins.
 
 Base image was provided by  https://github.com/peter-evans/vegeta-docker 
 
@@ -226,4 +225,24 @@ Type https://localhost:5601 on your browser
 Turn on monitoring as metricBeat is already configured
 
 ![images/](images/stack-monitoring2.PNG)
+
+
+
+## ENJOY
+
+- Add Nginx module to MetricBeat
+
+  - MetricBeat configuration is stored in a configmap
+
+- Try kibana lens new dashboard engine
+
+- Update elasticsearch node count and storage size
+
+  - update elasticsearch crd manifest
+
+    ```
+    kubectl edit elasticsearch
+    ```
+
+  - View changes on Kibana´s Stack Monitoring
 
