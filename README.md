@@ -30,6 +30,7 @@ By default pulumi run the stack against your local .kube/config. Your config sho
 Then you should login on pulumi and create your account. Then:
 
 ```
+npm install ## for downloading pulumi´s libraries
 pulumi login
 pulumi up
 ```
@@ -85,6 +86,14 @@ This workload if composed by 3 services
 
 ![images/](images/distributed-tracing.png)
 
+SpringBoot services:
+
+logs: [logback](http://logback.qos.ch/) - [logstash appender](https://github.com/logstash/logstash-logback-encoder)
+
+Tracing: [Opentracing](https://opentracing.io/) + [elastic APM java agent](https://www.elastic.co/guide/en/apm/agent/java/1.x/index.html)
+
+Metrics: [Micrometer](https://micrometer.io/)
+
 ```
 curl --header "Content-Type: application/json" --request POST http://{ADAPTER_IP}}:8090/MONADTST/testhttp -d @body.json
 ```
@@ -114,6 +123,8 @@ Where the body
     }
 }
 ```
+
+delayMillis: For elastic APM inferred span
 
 ### Mongodb
 
@@ -165,7 +176,7 @@ Once the cluster is created a Kubernetes Job will perform load request to our de
 
 This load Generator it is based on [Vegeta](https://github.com/tsenart/vegeta) and will be generating distributed traces for the first 15 mins.
 
-
+Base image was provided by  https://github.com/peter-evans/vegeta-docker 
 
 ## KIBANA
 
@@ -182,14 +193,18 @@ kubectl port-forward svc/quickstart-kb-http 5601:5601
 
 Type https://localhost:5601 on your browser
 
+<img src="images/kibana-login.PNG" alt="images/" style="zoom:50%;" />
+
 - User: elastic
 - password: ${DECODED_BASE64}
 
-<img src="images/kibana-login.PNG" alt="images/" style="zoom:50%;" />
+
 
 ### Check elasticsearch index and reload them
 
 ![images/](images/index-management.PNG)
+
+
 
 ### Create kibana index
 
@@ -198,11 +213,13 @@ Type https://localhost:5601 on your browser
 - metrics-* 
   - Our application workload is using this index for Micrometer
 
-[^MetricBeat and apm index are automatically created]: 
+[^]: MetricBeat and apm index are automatically created
 
 ![images/](images/index-pattern-final.PNG)
 
 ![images/](images/index-pattern.PNG)
+
+
 
 ### Stack Monitoring
 
