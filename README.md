@@ -1,6 +1,10 @@
 # elasticsearch full monitoring platform
 
-This repo contains de source code for running a Pulumi script that deploys full elasticstack + an application workload for apm and distributed tracing monitoring.
+This repo contains de source code for deploying full elasticstack + an application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command to: 
+
+```
+docker run -v ${HOME}/.kube:/usr/multicloud/kube iiglesias/multicloud-sandbox:0.1.0
+```
 
 If you have a kubernetes cluster try it out
 
@@ -17,6 +21,8 @@ If you have a kubernetes cluster try it out
 [Pulumi](https://www.pulumi.com/) is a modern IaC based on Hashicorp´s [Terraform](https://www.terraform.io/). 
 
 Its mainly used for cloud provisioning but in this case we will be using just the kubernetes provider for deploying our stack on a given kube/config
+
+You can access helm templates  https://github.com/iiglesiasg/helm-charts-repo 
 
 To simply run the scrip you will need following tools:
 
@@ -57,9 +63,9 @@ Simply run:
 docker run -v ${HOME}/.kube:/usr/multicloud/kube iiglesias/multicloud-sandbox:0.1.0
 ```
 
-The dockerfile is included in this repo
-
 * Note that pulumi destroy is not implemented
+
+The dockerfile is included in this repo. For pulumi´s stack status management I recommend creating your own dockerfile with your pulumi token
 
 
 
