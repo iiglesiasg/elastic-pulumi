@@ -82,7 +82,7 @@ The dockerfile is included in this repo
 
 ### Application Workload
 
-This workload if composed by 3 services  
+This workload is composed by 3 services  
 
 ![images/](images/distributed-tracing.png)
 
