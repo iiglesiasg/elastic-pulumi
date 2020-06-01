@@ -73,3 +73,10 @@ const appdemo = new k8s.helm.v2.Chart("micro-chart", {
     chart: "demoapp",    
     fetchOpts: {repo: "https://iiglesiasg.github.io/helm-charts-repo/"},
 },{dependsOn: [elkoperator.getResource("apps/v1/StatefulSet","quickstart-es-master"),mongo,logstash]});
+
+
+const loadgenerator = new k8s.helm.v2.Chart("load-generator", {
+    version: "0.2.0-ITX",
+    chart: "load-generator",    
+    fetchOpts: {repo: "https://iiglesiasg.github.io/helm-charts-repo/"},
+},{dependsOn: [elkoperator.getResource("apps/v1/StatefulSet","quickstart-es-master"),mongo,logstash]});
