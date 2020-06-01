@@ -6,16 +6,16 @@ This repo contains de source code for running a Pulumi script that deploys full 
 
 ### Pulumi
 
-Pulumi is a modern IaC based on Hashicorp´s Terraform. 
+[Pulumi](https://www.pulumi.com/) is a modern IaC based on Hashicorp´s [Terraform](https://www.terraform.io/). 
 
 Its mainly used for cloud provisioning but in this case we will be using just the kubernetes provider for deploying our stack on a given kube/config
 
 To simply run the scrip you will need following tools:
 
-- Helm 
-- Pulumi
-- Nodejs
-- kubectl 
+- [Helm](https://helm.sh/docs/intro/install/) 
+- [Pulumi](https://www.pulumi.com/docs/get-started/install/)
+- [Nodejs](https://nodejs.org/es/download/)
+- [kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/) 
 
 By default pulumi run the stack against your local .kube/config. Your config should be pointing the kubernetes cluster
 
@@ -30,6 +30,12 @@ An stack name may be required, type a name if prompted
 
 It will preview the stack to be deployed and prompt for confirmation
 
+You can destroy the stack deployed by running
+
+```
+pulumi destroy
+```
+
 ### Docker
 
 I made a docker image so you dont need to install so much tools.
@@ -43,6 +49,8 @@ docker run -v ${HOME}/.kube:/usr/multicloud/kube iiglesias/multicloud-sandbox:0.
 ```
 
 The dockerfile is included in this repo
+
+* Note that pulumi destroy is not implemented
 
 
 
@@ -107,7 +115,7 @@ Core service will perform insert and querys on a mongodb
 
 Just a minimal configuration for exposing the workload throught TLS by creating ingress manifest.
 
-It is intended to serve ACME certificates once an fqdn is assigned to the Nginx. By default clusterIssuers will be created but only selfsigned certificates are issued.
+It is intended to serve [ACME](https://letsencrypt.org/es/) certificates once an fqdn is assigned to the [Nginx](https://www.nginx.com/). By default clusterIssuers will be created but only selfsigned certificates are issued.
 
 ```
 sudo vi /etc/hosts
@@ -147,7 +155,7 @@ spec:
 
 Once the cluster is created a Kubernetes Job will perform load request to our demo workload.
 
-This load Generator it is based on Vegeta and will be generating distributed traces for the first 15 mins.
+This load Generator it is based on [Vegeta](https://github.com/tsenart/vegeta) and will be generating distributed traces for the first 15 mins.
 
 
 
@@ -169,17 +177,24 @@ Type https://localhost:5601 on your browser
 - User: elastic
 - password: ${DECODED_BASE64}
 
+<img src="images/kibana-login.png" alt="images/" style="zoom:50%;" />
+
 ### Check elasticsearch index and reload them
 
-
+![images/](images/index-management.PNG)
 
 ### Create kibana index
 
 - logstash-*
+  - Application workload logs
 - metrics-* 
   - Our application workload is using this index for Micrometer
 
+[^MetricBeat and apm index are automatically created]: 
 
+![images/](images/index-pattern-final.png)
+
+![images/](images/index-pattern.png)
 
 ### Stack Monitoring
 
