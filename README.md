@@ -45,7 +45,7 @@ An stack name may be required, type a name if prompted
 
 It will preview the stack to be deployed and prompt for confirmation
 
-You can destroy the stack deployed by running
+You can delete the stack by running
 
 ```
 pulumi destroy
