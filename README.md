@@ -2,7 +2,7 @@
 
 This repo contains de source code for running a Pulumi script that deploys full elasticstack + an application workload for apm and distributed tracing monitoring.
 
-If you have a kubernetes cluster 
+If you have a kubernetes cluster try it out
 
 ![images/](images/elastic-cluster.PNG)
 
