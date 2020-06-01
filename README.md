@@ -2,11 +2,13 @@
 
 This repo contains de source code for running a Pulumi script that deploys full elasticstack + an application workload for apm and distributed tracing monitoring.
 
-![images/](images/elastic-cluster.png)
+If you have a kubernetes cluster 
 
-![images/](images/elastic-cluster2.png)
+![images/](images/elastic-cluster.PNG)
 
-![images/](images/elastic-cluster3.png)
+![images/](images/elastic-cluster2.PNG)
+
+![images/](images/elastic-cluster3.PNG)
 
 ## Execute
 
@@ -183,7 +185,7 @@ Type https://localhost:5601 on your browser
 - User: elastic
 - password: ${DECODED_BASE64}
 
-<img src="images/kibana-login.png" alt="images/" style="zoom:50%;" />
+<img src="images/kibana-login.PNG" alt="images/" style="zoom:50%;" />
 
 ### Check elasticsearch index and reload them
 
@@ -198,15 +200,15 @@ Type https://localhost:5601 on your browser
 
 [^MetricBeat and apm index are automatically created]: 
 
-![images/](images/index-pattern-final.png)
+![images/](images/index-pattern-final.PNG)
 
-![images/](images/index-pattern.png)
+![images/](images/index-pattern.PNG)
 
 ### Stack Monitoring
 
-<img src="images/stack-monitoring1.png" alt="images/" style="zoom:50%;" />
+<img src="images/stack-monitoring1.PNG" alt="images/" style="zoom:50%;" />
 
 Turn on monitoring as metricBeat is already configured
 
-![images/](images/stack-monitoring2.png)
+![images/](images/stack-monitoring2.PNG)
 
