@@ -2,6 +2,12 @@
 
 This repo contains de source code for running a Pulumi script that deploys full elasticstack + an application workload for apm and distributed tracing monitoring.
 
+![images/](images/elastic-cluster.png)
+
+![images/](images/elastic-cluster2.png)
+
+![images/](images/elastic-cluster3.png)
+
 ## Execute
 
 ### Pulumi
@@ -198,5 +204,9 @@ Type https://localhost:5601 on your browser
 
 ### Stack Monitoring
 
+<img src="images/stack-monitoring1.png" alt="images/" style="zoom:50%;" />
 
+Turn on monitoring as metricBeat is already configured
+
+![images/](images/stack-monitoring2.png)
 
