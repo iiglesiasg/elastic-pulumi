@@ -1,6 +1,6 @@
 # elasticsearch full monitoring platform
 
-This repo contains de source code for deploying full elasticstack + an application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command to: 
+This repo contains de source code for deploying full elasticstack + running application workload on a kubernetes cluster. You can do it step by step using provided helm charts, or deploy them all running the pulumi script. Yes, there is one line command to: 
 
 ```
 docker run -v ${HOME}/.kube:/usr/multicloud/kube iiglesias/multicloud-sandbox:0.1.0
