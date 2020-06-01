@@ -24,7 +24,7 @@ Its mainly used for cloud provisioning but in this case we will be using just th
 
 You can access helm templates  https://github.com/iiglesiasg/helm-charts-repo 
 
-To simply run the scrip you will need following tools:
+To run the scrip you will need following tools:
 
 - [Helm](https://helm.sh/docs/intro/install/) 
 - [Pulumi](https://www.pulumi.com/docs/get-started/install/)
