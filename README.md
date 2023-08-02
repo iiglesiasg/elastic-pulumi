@@ -18,20 +18,20 @@ If you have a kubernetes cluster try it out
 
 ### Pulumi
 
-[Pulumi](https://www.pulumi.com/) is a modern IaC based on Hashicorp´s [Terraform](https://www.terraform.io/). 
+[Pulumi](https://www.pulumi.com/) is a modern IaC platform based on Hashicorp´s [Terraform](https://www.terraform.io/). 
 
-Its mainly used for cloud provisioning but in this case we will be using just the kubernetes provider for deploying our stack on a given kube/config
+It's mainly used for cloud provisioning but in this case we will be using just the kubernetes provider for deploying our stack on a given kube/config
 
 You can access helm templates  https://github.com/iiglesiasg/helm-charts-repo 
 
-To run the scrip you will need following tools:
+To run the script you will need following tools:
 
 - [Helm](https://helm.sh/docs/intro/install/) 
 - [Pulumi](https://www.pulumi.com/docs/get-started/install/)
 - [Nodejs](https://nodejs.org/es/download/)
 - [kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/) 
 
-By default pulumi run the stack against your local .kube/config. Your config should be pointing the kubernetes cluster
+By default pulumi runs the stack against your local .kube/config. Your config should be pointing the kubernetes cluster
 
 You should login on pulumi and create your account. Then run: 
 
@@ -41,7 +41,7 @@ pulumi login
 pulumi up
 ```
 
-An stack name may be required, type a name if prompted
+A stack name may be required, type a name if prompted
 
 It will preview the stack to be deployed and prompt for confirmation
 
